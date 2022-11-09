@@ -12,16 +12,50 @@ import Favorites from '../screens/favorites';
 import Gifts from '../screens/gifts';
 import Profile from '../screens/profile';
 
-//CREATE STACK
-const dashboardStackNavigator = createNativeStackNavigator();
+// CREATE DASHBOARD STACK
+const DashboardStackNavigator = createNativeStackNavigator();
 export const DashboardStack = () => {
     return(
-        <dashboardStackNavigator.Navigator>
-            <dashboardStackNavigator.Screen name='dashboard' component={Dashboard} />
-            <dashboardStackNavigator.Screen name='test' component={Test} />
-        </dashboardStackNavigator.Navigator>
+        <DashboardStackNavigator.Navigator>
+            <DashboardStackNavigator.Screen name='dashboard' component={Dashboard} />
+            <DashboardStackNavigator.Screen name='test' component={Test} />
+        </DashboardStackNavigator.Navigator>
     )
 }
+
+// CREATE GIFTS STACK
+const GiftsStackNavigator = createNativeStackNavigator();
+export const GiftsStack = () => {
+    return(
+        <GiftsStackNavigator.Navigator>
+            <GiftsStackNavigator.Screen name='gifts' component={Gifts} />
+            <GiftsStackNavigator.Screen name='test' component={Test} />
+        </GiftsStackNavigator.Navigator>
+    )
+}
+
+// CREATE FAVORITES STACK
+const FavoritesStackNavigator = createNativeStackNavigator();
+export const FavoriteStack = () => {
+    return(
+        <FavoritesStackNavigator.Navigator>
+            <FavoritesStackNavigator.Screen name='favorite' component={Favorites} />
+            <FavoritesStackNavigator.Screen name='test' component={Test} />
+        </FavoritesStackNavigator.Navigator>
+    )
+}
+
+// CREATE PROFILE STACK
+const ProfileStackNavigator = createNativeStackNavigator();
+export const ProfileStack = () => {
+    return(
+        <ProfileStackNavigator.Navigator>
+            <ProfileStackNavigator.Screen name='profile' component={Profile} />
+            <ProfileStackNavigator.Screen name='test' component={Test} />
+        </ProfileStackNavigator.Navigator>
+    )
+}
+
 
 //CREATE TABS
 const AppTab = createMaterialBottomTabNavigator();
