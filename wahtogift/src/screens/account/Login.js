@@ -14,7 +14,7 @@ const Login = () => {
 
             <TextInput value={email} onChangeText={text=> {setEmail(text)}} label="Email" keyboardType="email-address" autoCapitalize="none" right={<TextInput.Icon icon="email"/>} />
             <TextInput value={email} onChangeText={text=> {setPassword(text)}} label="Password" keyboardType="default" autoCapitalize="none" secureTextEntry right={<TextInput.Icon icon="eye"/>} />
-            <Button icon="camera" mode="contained" onPress={() => console.log('Pressed')}></Button>
+            <Button icon="camera" mode="contained" onPress={() => console.log('Pressed')}>LOGIN</Button>
         </View>
     )
 }
