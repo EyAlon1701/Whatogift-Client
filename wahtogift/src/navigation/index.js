@@ -12,7 +12,23 @@ import Favorites from '../screens/favorites';
 import Gifts from '../screens/gifts';
 import Profile from '../screens/profile';
 
-// CREATE DASHBOARD STACK
+import Login from '../screens/account/Login';
+import Signup from '../screens/account/Signup';
+import Verify from '../screens/account/Verify';
+
+//CREATE ACCOUNT STACK
+const AccountStackNavigator = createNativeStackNavigator();
+export const AccountStack = () => {
+    return(
+        <DashboardStackNavigator.Navigator>
+            <DashboardStackNavigator.Screen name='login' component={Login} />
+            <DashboardStackNavigator.Screen name='signup' component={Signup} />
+            <DashboardStackNavigator.Screen name='verify' component={Verify} />
+        </DashboardStackNavigator.Navigator>
+    )
+}
+
+//CREATE DASHBOARD STACK
 const DashboardStackNavigator = createNativeStackNavigator();
 export const DashboardStack = () => {
     return(
@@ -23,18 +39,7 @@ export const DashboardStack = () => {
     )
 }
 
-// CREATE GIFTS STACK
-const GiftsStackNavigator = createNativeStackNavigator();
-export const GiftsStack = () => {
-    return(
-        <GiftsStackNavigator.Navigator>
-            <GiftsStackNavigator.Screen name='gifts' component={Gifts} />
-            <GiftsStackNavigator.Screen name='test' component={Test} />
-        </GiftsStackNavigator.Navigator>
-    )
-}
-
-// CREATE FAVORITES STACK
+//CREATE FAVORITES STACK
 const FavoritesStackNavigator = createNativeStackNavigator();
 export const FavoriteStack = () => {
     return(
@@ -45,7 +50,18 @@ export const FavoriteStack = () => {
     )
 }
 
-// CREATE PROFILE STACK
+//CREATE GIFTS STACK
+const GiftsStackNavigator = createNativeStackNavigator();
+export const GiftsStack = () => {
+    return(
+        <GiftsStackNavigator.Navigator>
+            <GiftsStackNavigator.Screen name='gifts' component={Gifts} />
+            <GiftsStackNavigator.Screen name='test' component={Test} />
+        </GiftsStackNavigator.Navigator>
+    )
+}
+
+//CREATE PROFILE STACK
 const ProfileStackNavigator = createNativeStackNavigator();
 export const ProfileStack = () => {
     return(
@@ -56,7 +72,6 @@ export const ProfileStack = () => {
     )
 }
 
-
 //CREATE TABS
 const AppTab = createMaterialBottomTabNavigator();
 export const TabsNavigator = () => {
@@ -64,11 +79,11 @@ export const TabsNavigator = () => {
         <AppTab.Navigator>
             <AppTab.Screen name='dashboardTab' component={DashboardStack}
                 options={{ tabBarLabel: 'Dashboard', tabBarIcon: () => (<MaterialCommuniyIcons name='view-dashboard' size={28} />)}} />  
-            <AppTab.Screen name='favoritesTab' component={Favorites}
+            <AppTab.Screen name='favoritesTab' component={FavoriteStack}
                 options={{ tabBarLabel: 'Favorites', tabBarIcon: () => (<MaterialCommuniyIcons name='view-grid' size={28} />)}} />  
-            <AppTab.Screen name='giftsTab' component={Gifts}
+            <AppTab.Screen name='giftsTab' component={GiftsStack}
                 options={{ tabBarLabel: 'Gifts', tabBarIcon: () => (<MaterialCommuniyIcons name='gift-outline' size={28} />)}} />  
-            <AppTab.Screen name='profileTab' component={Profile}
+            <AppTab.Screen name='profileTab' component={ProfileStack}
                 options={{ tabBarLabel: 'Profile', tabBarIcon: () => (<MaterialCommuniyIcons name='view-grid' size={28} />)}} />  
         </AppTab.Navigator>
     )
