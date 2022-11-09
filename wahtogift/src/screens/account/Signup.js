@@ -1,6 +1,6 @@
 import react from "react";
 import {View, Text} from 'react-native';
-import Style from '../../utilities/AppStyle';
+import Style from '../../utilis/AppStyle';
 
 const Signup = () => {
     return(
