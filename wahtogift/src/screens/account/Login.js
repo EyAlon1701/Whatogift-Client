@@ -3,6 +3,7 @@ import {View,Text, Alert,  } from 'react-native';
 import Style from '../../utilis/AppStyle';
 import {TextInput, Button, ActivityIndicator } from 'react-native-paper';
 import Colors from '../../utilis/AppColors';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = () => {
 
@@ -23,7 +24,7 @@ const Login = () => {
         if(email != "" && password != "")
         {
             try{
-                const url = 'http://localhost:3001/api/account/login';
+                const url = 'http://10.70.2.133:3001/api/account/login';
                 const response = await fetch(url,{
                     method: 'post',
                     headers: {'Content-Type': 'application/json'},
@@ -32,12 +33,28 @@ const Login = () => {
                         password: password
                     })
                 })
-
                 const data = await response.json()
                 if(data.status)
                 {
+                    AsyncStorage.setItem('Token', JSON.stringify({
+                        token: data.token
+                    }))
+
+                    {/*
+                    const overview_url = 'http://10.70.2.133:3001/api/account/getOverview';
+                    const overview_response = await fetch(overview_url,{
+                        method: 'get',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'authorization' : `Bearer ${data.token}`
+                        }
+                    });
+                    const overview_data = await overview_response.json();
+                    setErrorMsg(overview_data.message);
+                    */}
                     setIsLoading(false);
-                    setErrorMsg(data.token);
+
+
                 }
                 else
                 {

@@ -5,7 +5,7 @@ import { AccountStack, TabsNavigator } from './src/navigation';
 
 const App = () => {
 
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   return (
     <NavigationContainer>
