@@ -40,7 +40,7 @@ const Dashboard = (props) => {
           setLocation(location);
 
           if(token && location){
-              console.log(location);
+              console.log("location: " + location);
             const action = actions.getOverview(token,location);
             try {
                 dispatch(action);

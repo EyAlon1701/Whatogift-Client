@@ -14,6 +14,7 @@ export const loginDispatch = (data) => {
     }
 }
 
+
 export const getOverviewDispatch = (data) => {
     return dispatch => {
         dispatch({ type: GET_OVERVIEW, data: data })
@@ -63,7 +64,6 @@ export const login = (email,password) => {
                 })
             })
             const data = await request.json();
-            console.log(data);
             if(data.status){
                 AsyncStorage.setItem('Account', JSON.stringify({
                     token: data.token,

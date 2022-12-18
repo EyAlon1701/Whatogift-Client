@@ -1,12 +1,11 @@
-import react, {useEffect, useState} from "react";
-import {View,Text, Alert,  } from 'react-native';
+import react, {useState, useEffect} from "react";
+import {View,Text, ActivityIndicator, Alert} from 'react-native';
 import Style from '../../utilis/AppStyle';
-import {TextInput, Button, ActivityIndicator } from 'react-native-paper';
-import Colors from '../../utilis/AppColors';
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import {TextInput, Button} from 'react-native-paper';
+import Colors from '../../utilis/AppColors.js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as actions from '../../../store/actions';
 import {useDispatch} from 'react-redux';
-//import { combineReducers } from 'redux';
 
 const Login = () => {
 
@@ -14,13 +13,14 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        if(errorMsg)
-        {
-            Alert.alert('Login',errorMsg);
+        if(errorMsg){
+            Alert.alert('Login', errorMsg);
         }
     },[errorMsg])
+
 
     const login = async() => {
         setIsLoading(true);
@@ -37,6 +37,7 @@ const Login = () => {
             setErrorMsg('Email and password are required');
         }
     }
+
 
     return(
         <View style={Style.container}>
@@ -61,7 +62,7 @@ const Login = () => {
             />
 
             {
-                isLoading? (<ActivityIndicator color={Colors.ocean} size="large"/>) 
+                isLoading ? (<ActivityIndicator color={Colors.ocean} size="large" />) 
                 : (<Button icon="send" mode="contained" onPress={login}>LOGIN</Button>)
             }
 
